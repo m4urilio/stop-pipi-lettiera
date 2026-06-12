@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stop Pipì Fuori dalla Lettiera</title>
+  <meta name="description" content="Il metodo in 7 giorni per far tornare il tuo gatto alla lettiera — senza farmaci, senza stress." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #FAF8F4;
+      --surface: #FFFFFF;
+      --border: #EAE6DF;
+      --text-primary: #1C1B19;
+      --text-secondary: #6E6A63;
+      --sage: #8B9B7E;
+      --sage-dark: #758466;
+      --gold: #B79360;
+      --placeholder-bg: #F1EDE6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--text-primary);
+      line-height: 1.18;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 8vw, 3.2rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    h2 {
+      font-size: clamp(1.55rem, 5vw, 2rem);
+      font-weight: 600;
+    }
+
+    p {
+      color: var(--text-primary);
+    }
+
+    .text-secondary {
+      color: var(--text-secondary);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto;
+    }
+
+    /* ── IMAGE PLACEHOLDER ── */
+    .img-placeholder {
+      width: 100%;
+      background: var(--placeholder-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 48px 24px;
+    }
+
+    .img-placeholder svg {
+      opacity: 0.35;
+    }
+
+    .img-placeholder .caption {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-align: center;
+      max-width: 340px;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* ── CTA BUTTON ── */
+    .btn-cta {
+      display: block;
+      width: 100%;
+      background: var(--sage);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      padding: 18px 24px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-cta:hover,
+    .btn-cta:focus {
+      background: var(--sage-dark);
+    }
+
+    /* ── SECTION SPACING ── */
+    section {
+      padding: 60px 0;
+    }
+
+    section + section {
+      border-top: 1px solid var(--border);
+    }
+
+    /* ══════════════════════════════
+       SECTION 1 — HERO
+    ══════════════════════════════ */
+    .hero {
+      padding-top: 52px;
+      padding-bottom: 60px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin-bottom: 20px;
+    }
+
+    .hero .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+
+    .hero .img-placeholder {
+      height: 280px;
+      margin-bottom: 36px;
+    }
+
+    @media (min-width: 480px) {
+      .hero .img-placeholder {
+        height: 340px;
+      }
+    }
+
+    /* ══════════════════════════════
+       SECTION 2 — AGITAZIONE
+    ══════════════════════════════ */
+    .agitation {
+      text-align: left;
+    }
+
+    .agitation p + p {
+      margin-top: 18px;
+    }
+
+    .agitation .highlight {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* ══════════════════════════════
+       SECTION 3 — RIVELAZIONE
+    ══════════════════════════════ */
+    .revelation {
+      text-align: center;
+    }
+
+    .revelation-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 36px 32px;
+      margin-top: 0;
+      position: relative;
+    }
+
+    .revelation-card::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      color: var(--gold);
+      opacity: 0.4;
+      position: absolute;
+      top: 10px;
+      left: 22px;
+      line-height: 1;
+    }
+
+    .revelation-card p {
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+
+    .revelation-card p + p {
+      margin-top: 16px;
+    }
+
+    .revelation-card .second {
+      font-weight: 500;
+      color: var(--sage-dark);
+    }
+
+    /* ══════════════════════════════
+       SECTION 4 — AUTRICE
+    ══════════════════════════════ */
+    .author {
+      text-align: center;
+    }
+
+    .author-portrait {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--placeholder-bg);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      overflow: hidden;
+    }
+
+    .author-portrait svg {
+      opacity: 0.3;
+    }
+
+    .author-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .author-role {
+      font-size: 0.88rem;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .author-bio {
+      font-size: 0.97rem;
+      color: var(--text-secondary);
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════
+       SECTION 5 — COSA INCLUDE
+    ══════════════════════════════ */
+    .includes {
+      text-align: left;
+    }
+
+    .includes h2 {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .includes ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .includes li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .check-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+    }
+
+    /* ══════════════════════════════
+       SECTION 6 — PREZZO + GARANZIA
+    ══════════════════════════════ */
+    .pricing {
+      text-align: center;
+    }
+
+    .price-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 5vw, 2rem);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .guarantee {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+    }
+
+    .guarantee strong {
+      color: var(--text-primary);
+    }
+
+    .trust-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .badge svg {
+      flex-shrink: 0;
+      color: var(--text-secondary);
+    }
+
+    .badge-sep {
+      width: 1px;
+      height: 18px;
+      background: var(--border);
+    }
+
+    /* ══════════════════════════════
+       SECTION 7 — CTA FINALE
+    ══════════════════════════════ */
+    .final-cta {
+      text-align: center;
+    }
+
+    .final-cta .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 4.5vw, 1.75rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      line-height: 1.4;
+    }
+
+    .microcopy {
+      margin-top: 16px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.01em;
+    }
+
+    .microcopy span {
+      display: inline;
+    }
+
+    .microcopy span + span::before {
+      content: ' · ';
+    }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 22px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.83rem;
+      line-height: 1.7;
+    }
+
+    footer p + p {
+      margin-top: 12px;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    footer a:hover {
+      color: var(--text-primary);
+    }
+
+    /* ══════════════════════════════
+       COOKIE BANNER
+    ══════════════════════════════ */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      z-index: 100;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+    }
+
+    #cookie-banner p {
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .cookie-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .btn-cookie-accept {
+      background: var(--sage);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.87rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-cookie-accept:hover {
+      background: var(--sage-dark);
+    }
+
+    .btn-cookie-prefs {
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      padding: 0;
+      white-space: nowrap;
+    }
+
+    .btn-cookie-prefs:hover {
+      color: var(--text-primary);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* ══════════════════════════════
+       SECTION LABEL
+    ══════════════════════════════ */
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: block;
+      text-align: center;
+    }
+
+    /* Spacing helpers */
+    .mt-8  { margin-top: 8px; }
+    .mt-12 { margin-top: 12px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-24 { margin-top: 24px; }
+    .mt-32 { margin-top: 32px; }
+    .mt-40 { margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════
+       SECTION 1 — HERO
+  ══════════════════════════════ -->
+  <section class="hero">
+    <div class="page">
+      <h1>Stop Pipì Fuori<br>dalla Lettiera</h1>
+      <p class="subtitle mt-16">
+        Il metodo in 7 giorni per far tornare il tuo gatto alla lettiera — senza farmaci, senza stress.
+      </p>
+
+      <div class="img-placeholder" style="height: 300px;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+        </svg>
+        <span class="caption">Un gatto comune (soriano/europeo, non di razza costosa) in un ambiente domestico pulito, luminoso e moderno. Luce naturale e morbida. Tono caldo e rassicurante, non clinico.</span>
+      </div>
+
+      <a href="{{HOTMART_CHECKOUT_URL}}" class="btn-cta mt-32">
+        Risolvi oggi — €9,99
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SECTION 2 — AGITAZIONE
+  ══════════════════════════════ -->
+  <section class="agitation">
+    <div class="page">
+      <p>Macchie sul divano, sul letto, negli angoli di casa. L'odore che non va via. E quell'imbarazzo quando arrivano gli ospiti.</p>
+      <p class="highlight">Hai già provato di tutto — ma il tuo gatto continua.</p>
+      <p>La verità? Non è dispetto. E non è colpa tua.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SECTION 3 — RIVELAZIONE
+  ══════════════════════════════ -->
+  <section class="revelation">
+    <div class="page">
+      <span class="section-label">Il motivo che nessuno ti ha spiegato</span>
+      <div class="revelation-card">
+        <p>Nel 90% dei casi è un dettaglio nella lettiera (o intorno ad essa) che spinge il gatto a cercare un altro posto.</p>
+        <p class="second">Una volta capito il motivo, la soluzione è semplice e veloce.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SECTION 4 — AUTRICE
+  ══════════════════════════════ -->
+  <section class="author">
+    <div class="page">
+      <div class="author-portrait">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      <!-- ART DIRECTION: ritratto naturale e caldo dell'autrice, stile semplice e autentico -->
+
+      <p class="author-name">{{NOME_AUTRICE}}</p>
+      <p class="author-role">appassionata di comportamento felino</p>
+      <p class="author-bio">
+        Da anni aiuto le famiglie italiane a ritrovare la serenità con il proprio gatto. Non sono una clinica, né un marchio di crocchette: condivido solo metodi pratici e testati, che rispettano l'animale e funzionano nella vita di tutti i giorni.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SECTION 5 — COSA INCLUDE
+  ══════════════════════════════ -->
+  <section class="includes">
+    <div class="page">
+      <h2>Cosa trovi dentro:</h2>
+      <ul>
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="11" stroke="#8B9B7E" stroke-width="1.5"/>
+            <path d="M7.5 12.5l3 3 6-6" stroke="#8B9B7E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Il vero motivo per cui il tuo gatto evita la lettiera</span>
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="11" stroke="#8B9B7E" stroke-width="1.5"/>
+            <path d="M7.5 12.5l3 3 6-6" stroke="#8B9B7E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Il metodo passo-passo dei 7 giorni, spiegato con semplicità</span>
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="11" stroke="#8B9B7E" stroke-width="1.5"/>
+            <path d="M7.5 12.5l3 3 6-6" stroke="#8B9B7E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Cosa non fare: gli errori più comuni che peggiorano la situazione</span>
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="11" stroke="#8B9B7E" stroke-width="1.5"/>
+            <path d="M7.5 12.5l3 3 6-6" stroke="#8B9B7E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Un approccio senza farmaci e senza stress per l'animale</span>
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="11" stroke="#B79360" stroke-width="1.5"/>
+            <path d="M7.5 12.5l3 3 6-6" stroke="#B79360" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span><strong>Accesso immediato:</strong> PDF + brevi video guidati, da consultare quando vuoi</span>
+        </li>
+      </ul>
+
+      <a href="{{HOTMART_CHECKOUT_URL}}" class="btn-cta mt-40">
+        Risolvi oggi — €9,99
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SECTION 6 — PREZZO + GARANZIA
+  ══════════════════════════════ -->
+  <section class="pricing">
+    <div class="page">
+      <p class="price-headline">Tutto questo per €9,99 —<br>meno di due caffè al bar.</p>
+      <p class="guarantee mt-12">E se non funziona, sei coperto: <strong>Soddisfatti o Rimborsati.</strong></p>
+
+      <div class="divider mt-32"></div>
+
+      <div class="trust-badges mt-32">
+        <!-- PayPal badge -->
+        <div class="badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 11C7 7.686 9.686 5 13 5h1c2.761 0 5 2.239 5 5 0 3.314-2.686 6-6 6H9l-2 8H4l3-18"/>
+          </svg>
+          <span>PayPal</span>
+        </div>
+
+        <div class="badge-sep"></div>
+
+        <!-- Pagamento Sicuro -->
+        <div class="badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span>Pagamento Sicuro</span>
+        </div>
+
+        <div class="badge-sep"></div>
+
+        <!-- Consegna immediata -->
+        <div class="badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+          <span>Prodotto digitale · Consegna immediata</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SECTION 7 — CTA FINALE
+  ══════════════════════════════ -->
+  <section class="final-cta">
+    <div class="page">
+      <p class="tagline">Il tuo gatto può tornare alla lettiera.<br>E tu puoi tornare a respirare in casa tua.</p>
+
+      <a href="{{HOTMART_CHECKOUT_URL}}" class="btn-cta">
+        Voglio risolvere oggi — €9,99
+      </a>
+
+      <p class="microcopy mt-16">
+        <span>Pagamento sicuro</span>
+        <span>Consegna immediata via email</span>
+        <span>Soddisfatti o Rimborsati</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer>
+    <div class="page" style="max-width:640px; margin:0 auto;">
+      <p>Prodotto digitale. Consegna immediata via email dopo l'acquisto. Nessun costo nascosto.</p>
+      <p>
+        <a href="/privacy">Privacy</a> ·
+        <a href="/termini">Termini e Condizioni</a> ·
+        <a href="/contatti">Contatti</a>
+      </p>
+      <p class="mt-12">© {{ANNO}} {{NOME_BRAND}}. Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════
+       COOKIE BANNER
+  ══════════════════════════════ -->
+  <div id="cookie-banner" role="region" aria-label="Cookie banner">
+    <p>Usiamo i cookie per offrirti la migliore esperienza sul sito.</p>
+    <div class="cookie-actions">
+      <button class="btn-cookie-prefs" onclick="closeBanner()">Preferenze</button>
+      <button class="btn-cookie-accept" onclick="acceptCookies()">Accetta</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      if (localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookie-banner').classList.add('hidden');
+      }
+    })();
+
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', '1');
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+
+    function closeBanner() {
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
